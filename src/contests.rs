@@ -10,10 +10,11 @@ pub struct Standings {
 
 impl Standings {
     pub fn task_ids(&self) -> Vec<String> {
-        self.task_info
-            .iter()
-            .map(|t| t.task_screen_name.clone())
-            .collect()
+        self.task_info.iter().map(|t| t.id().to_string()).collect()
+    }
+
+    pub fn standings(&self) -> &Vec<StandingsData> {
+        &self.standings_data
     }
 }
 
@@ -25,6 +26,12 @@ pub struct TaskInfo {
     task_screen_name: String,
 }
 
+impl TaskInfo {
+    pub fn id(&self) -> &str {
+        &self.task_screen_name
+    }
+}
+
 #[derive(Deserialize, Debug, Eq, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct StandingsData {
@@ -34,10 +41,16 @@ pub struct StandingsData {
     task_results: HashMap<String, TaskResult>,
 }
 
+impl StandingsData {
+    pub fn result(&self, id: &str) -> Option<&TaskResult> {
+        self.task_results.get(id)
+    }
+}
+
 #[derive(Deserialize, Debug, Eq, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct TaskResult {
-    score: i64,
+    pub score: i64,
 }
 
 fn get_standings_url(id: &str) -> String {
