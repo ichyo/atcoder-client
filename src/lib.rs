@@ -3,6 +3,7 @@ extern crate serde_derive;
 extern crate reqwest;
 
 pub mod contests;
+pub mod users;
 
 #[cfg(test)]
 mod tests {
