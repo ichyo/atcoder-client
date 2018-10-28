@@ -3,9 +3,9 @@ use std::collections::HashMap;
 #[derive(Deserialize, Debug, Eq, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct Standings {
-    fixed: bool,
-    task_info: Vec<TaskInfo>,
-    standings_data: Vec<StandingsData>,
+    pub fixed: bool,
+    pub task_info: Vec<TaskInfo>,
+    pub standings_data: Vec<StandingsData>,
 }
 
 impl Standings {
@@ -21,9 +21,9 @@ impl Standings {
 #[derive(Deserialize, Debug, Eq, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct TaskInfo {
-    assignment: String,
-    task_name: String,
-    task_screen_name: String,
+    pub assignment: String,
+    pub task_name: String,
+    pub task_screen_name: String,
 }
 
 impl TaskInfo {
@@ -35,10 +35,11 @@ impl TaskInfo {
 #[derive(Deserialize, Debug, Eq, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct StandingsData {
-    rank: u64,
-    user_name: String,
-    user_screen_name: String,
-    task_results: HashMap<String, TaskResult>,
+    pub rank: u64,
+    pub user_name: String,
+    pub user_screen_name: String,
+    pub is_rated: bool,
+    pub task_results: HashMap<String, TaskResult>,
 }
 
 impl StandingsData {
