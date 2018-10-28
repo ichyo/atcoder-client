@@ -1,3 +1,5 @@
+pub mod contests;
+
 #[cfg(test)]
 mod tests {
     #[test]
