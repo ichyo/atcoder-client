@@ -56,6 +56,13 @@ impl StandingsData {
 #[serde(rename_all = "PascalCase")]
 pub struct TaskResult {
     pub score: i64,
+    pub status: i16,
+}
+
+impl TaskResult {
+    pub fn is_solved(&self) -> bool {
+        self.status == 1
+    }
 }
 
 fn get_standings_url(id: &str) -> String {
