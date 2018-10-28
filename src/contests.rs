@@ -8,6 +8,15 @@ pub struct Standings {
     standings_data: Vec<StandingsData>,
 }
 
+impl Standings {
+    pub fn task_ids(&self) -> Vec<String> {
+        self.task_info
+            .iter()
+            .map(|t| t.task_screen_name.clone())
+            .collect()
+    }
+}
+
 #[derive(Deserialize, Debug, Eq, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct TaskInfo {
