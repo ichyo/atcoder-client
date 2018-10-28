@@ -45,6 +45,10 @@ impl StandingsData {
     pub fn result(&self, id: &str) -> Option<&TaskResult> {
         self.task_results.get(id)
     }
+
+    pub fn user_id(&self) -> &str {
+        &self.user_screen_name
+    }
 }
 
 #[derive(Deserialize, Debug, Eq, PartialEq)]
