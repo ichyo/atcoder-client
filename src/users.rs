@@ -1,13 +1,13 @@
 #[derive(Deserialize, Debug, Eq, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct Competition {
-    is_rated: bool,
-    place: u64,
-    new_rating: i32,
-    performance: i32,
-    inner_performance: i32,
-    contest_screen_name: String,
-    contest_name: String,
+    pub is_rated: bool,
+    pub place: u64,
+    pub new_rating: i32,
+    pub performance: i32,
+    pub inner_performance: i32,
+    pub contest_screen_name: String,
+    pub contest_name: String,
 }
 
 impl Competition {
