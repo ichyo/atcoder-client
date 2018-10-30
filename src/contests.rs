@@ -40,6 +40,8 @@ pub struct StandingsData {
     pub user_screen_name: String,
     pub is_rated: bool,
     pub task_results: HashMap<String, TaskResult>,
+    pub old_rating: i32,
+    pub rating: i32,
 }
 
 impl StandingsData {
